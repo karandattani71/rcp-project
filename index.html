@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock Paper Scissors</title>
+    <link rel="shortcut icon" href="scissor.png">
+</head>
+
+<body>
+    <header>
+        <h1>Rock Paper Scissor Game</h1>
+    </header>
+    <br><br>
+	<h3 class="score">Score</h3>
+    <div class="score-board">
+		
+        <div id="user-label" class="badge">User</div>
+        <div id="computer-label" class="badge">Comp</div>
+        <span id="user-score">0</span> : <span id="computer-score">0</span>
+    </div><br>
+    <div class="result">
+        <p>Welcome to RCP Game</p>
+    </div>
+	<div class="main">
+		<div class="human">
+			<div id="imag" class="imagm" >
+                <img src="img\user.png" class="imagm">
+			</div>
+		
+		</div>
+		<div id="re" class="winlose">
+			<div id="res"></div>
+            <input class="button" type="button" value="Reset Score" onClick="location.href=location.href">
+            
+		</div>
+		<div class="computer">
+			<div id="imgc" class="imgc">
+                <img src="img\computer.png" class="imgc">
+			</div>
+		</div>
+	</div>
+
+        <div class="choice" id="r">
+            <img src="img\rock1.png" alt="" height="80" width="80">
+        </div>
+        <div class="choice" id="p">
+            <img src="img\paper1.png" alt="" height="80" width="80">
+        </div>
+        <div class="choice" id="s">
+            <img src="img\scissor1.png" alt="" height="80" width="80">
+        </div>
+
+		<div class="choicer" id="r">
+			<img src="img\rock1.png" alt="" height="80" width="80">
+		</div>
+		<div class="choicer" id="p">
+			<img src="img\paper1.png" alt="" height="80" width="80">
+		</div>
+		<div class="choicer" id="s">
+			<img src="img\scissor1.png" alt="" height="80" width="80">
+		</div><br>
+        <div class="footer">
+            <p>Copyright &copy; RCP Project Inc. 2022</p>
+            <p>Handcrafted by Karan Dattani</p>
+          </div>
+    <!-- <p id="action-message">Make Your Choice.</p><br><br><br><br><br><br><br> -->
+    <br><br><br><br><br>
+
+    <script src="app.js" charset="utf-8"></script>
+</body>
+
+</html>
