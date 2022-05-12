@@ -1,24 +1,23 @@
-//  Decaration of variables
-
 var userScore = 0;
 var computerScore = 0;
+var tie=0;
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
+const winscore_span=document.getElementById("win-score");
 const sccoreBoard_div = document.querySelector(".score-board");
 const result_p = document.querySelector(".result > p");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
 
-// Creating a random function to generate computer choice
 
 function computerChoice() {
-    const choices = ['r', 'p', 's'];
+    const choices = ['rc', 'pc', 'sc'];
     const choice_result=choices[Math.floor(Math.random() * 3)];
-    if(choice_result=='r'){
+    if(choice_result=='rc'){
         document.getElementById("imgc").innerHTML="<img src='img/rock1.png' width=250px height=250px>";
     }
-    else if(choice_result=='p'){
+    else if(choice_result=='pc'){
         document.getElementById("imgc").innerHTML="<img src='img/paper1.png' width=250px height=250px>";
     }
     else{
@@ -34,53 +33,58 @@ function win(userInput, compChoice) {
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
+    // winscore_span.innerHTML=userScore;
 
-    if (userInput === 'r' && compChoice === 's') {
+    if (userInput === 'r' && compChoice === 'sc') {
         result_p.innerHTML = `Computer chosed Scissors. You Win`;
     }
-    else if (userInput === 'p' && compChoice === 'r') {
+    else if (userInput === 'p' && compChoice === 'rc') {
         result_p.innerHTML = `Computer chosed Rock. You Win`;
     }
-    else if (userInput === 's' && compChoice === 'p') {
+    else if (userInput === 's' && compChoice === 'pc') {
         result_p.innerHTML = `Computer chosed Paper. You Win`;
     }
+    console.log(userInput,compChoice)
+
     // Using a delay of 350ms after showing background green/red/black colour
+    console.log(compChoice)
     document.getElementById(userInput).classList.add('win');
-    document.getElementById(compChoice).classList.add('win');
+    document.getElementById(compChoice).classList.add('lose');
     setTimeout(function () { document.getElementById(userInput).classList.remove('win'); }, 350);
-    setTimeout(function () { document.getElementById(compChoice).classList.remove('win'); }, 350);
+    setTimeout(function () { document.getElementById(compChoice).classList.remove('lose'); }, 350);
 }
 
 function Lose(userInput, compChoice) {
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    if (userInput === 'r' && compChoice === 'p') {
+    if (userInput === 'r' && compChoice === 'pc') {
         result_p.innerHTML = "Computer chosed Paper. You Lost";
     }
-    else if (userInput === 'p' && compChoice === 's') {
+    else if (userInput === 'p' && compChoice === 'sc') {
         result_p.innerHTML = `Computer chosed Scissors. You Lost`;
     }
-    else if (userInput === 's' && compChoice === 'r') {
+    else if (userInput === 's' && compChoice === 'rc') {
         result_p.innerHTML = `Computer chosed Rock. You Lost`;
     }
     document.getElementById(userInput).classList.add('lose');
-    document.getElementById(compChoice).classList.add('lose');
+    document.getElementById(compChoice).classList.add('win');
     setTimeout(function () { document.getElementById(userInput).classList.remove('lose'); }, 350);
-    setTimeout(function () { document.getElementById(compChoice).classList.remove('lose'); }, 350);
+    setTimeout(function () { document.getElementById(compChoice).classList.remove('win'); }, 350);
 
 }
 
 function Draw(userInput, compChoice) {
+    tie++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    if (userInput === 'r' && compChoice === 'r') {
+    if (userInput === 'r' && compChoice === 'rc') {
         result_p.innerHTML = `It's a Draw!!`;
     }
-    else if (userInput === 'p' && compChoice === 'p') {
+    else if (userInput === 'p' && compChoice === 'pc') {
         result_p.innerHTML = `It's a Draw!!`;
     }
-    else if (userInput === 's' && compChoice === 's') {
+    else if (userInput === 's' && compChoice === 'sc') {
         result_p.innerHTML = `It's a Draw!!`;
     }
     document.getElementById(userInput).classList.add('draw');
@@ -95,39 +99,19 @@ function Draw(userInput, compChoice) {
 function game(userInput) {
     const compChoice = computerChoice();
     const UserChoice = userInput + compChoice;
-        if (UserChoice === "rs" || UserChoice === "pr" || UserChoice === "sp") {
+        if (UserChoice === "rsc" || UserChoice === "prc" || UserChoice === "spc") {
         win(userInput, compChoice);
         console.log("Win");
     }
-    else if (UserChoice === "rp" || UserChoice === "ps" || UserChoice === "sr") {
+    else if (UserChoice === "rpc" || UserChoice === "psc" || UserChoice === "src") {
         Lose(userInput, compChoice);
         console.log("Lose");
     }
-    else if (UserChoice === "rr" || UserChoice === "pp" || UserChoice === "ss") {
+    else if (UserChoice === "rrc" || UserChoice === "ppc" || UserChoice === "ssc") {
         Draw(userInput, compChoice);
         console.log("Draw");
     }
 }
-
-// function game(compChoice) {
-//     const UserChoice = userInput
-//     const compChoice =compChoice()+userInput;
-//         if (compChoice === "rs" || compChoice === "pr" || compChoice === "sp") {
-//         win(userInput, compChoice);
-//         console.log("Win");
-//     }
-//     else if (compChoice === "rp" || compChoice === "ps" || compChoice === "sr") {
-//         Lose(userInput, compChoice);
-//         console.log("Lose");
-//     }
-//     else if (compChoice === "rr" || compChoice === "pp" || compChoice === "ss") {
-//         Draw(userInput, compChoice);
-//         console.log("Draw");
-//     }
-// }
-
-// Declaration of main function and calling it
-// Also initialiser of game
 
 function main() {
     rock_div.addEventListener('click', function () {
