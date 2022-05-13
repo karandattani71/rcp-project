@@ -9,19 +9,20 @@ const result_p = document.querySelector(".result > p");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
+const reset_div=document.getElementById('btn1')
 
 
 function computerChoice() {
     const choices = ['rc', 'pc', 'sc'];
     const choice_result=choices[Math.floor(Math.random() * 3)];
     if(choice_result=='rc'){
-        document.getElementById("imgc").innerHTML="<img src='img/rock1.png' width=250px height=250px>";
+        document.getElementById("imgc").innerHTML="<img src='img/rock1.png' width=230px height=230px>";
     }
     else if(choice_result=='pc'){
-        document.getElementById("imgc").innerHTML="<img src='img/paper1.png' width=250px height=250px>";
+        document.getElementById("imgc").innerHTML="<img src='img/paper1.png' width=230px height=230px>";
     }
     else{
-        document.getElementById("imgc").innerHTML="<img src='img/scissor1.png' width=250px height=250px>";
+        document.getElementById("imgc").innerHTML="<img src='img/scissor1.png' width=230px height=230px>";
     }
     return choice_result;
 }
@@ -115,16 +116,25 @@ function game(userInput) {
 
 function main() {
     rock_div.addEventListener('click', function () {
-        document.getElementById("imag").innerHTML="<img src='img/rock1.png' width=250px height=250px>";
+        document.getElementById("imag").innerHTML="<img src='img/rock1.png' width=230px height=230px>";
         game('r');
     })
     paper_div.addEventListener('click', function () {
-        document.getElementById("imag").innerHTML="<img src='img/paper1.png' width=250px height=250px>";
+        document.getElementById("imag").innerHTML="<img src='img/paper1.png' width=230px height=230px>";
         game('p');
     })
     scissors_div.addEventListener('click', function () {
-        document.getElementById("imag").innerHTML="<img src='img/scissor1.png' width=250px height=250px>";
+        document.getElementById("imag").innerHTML="<img src='img/scissor1.png' width=230px height=230px>";
         game('s');
+    })
+    reset_div.addEventListener('click', function() {
+        userScore_span.innerHTML=0
+        computerScore_span.innerHTML=0
+        userScore=0
+        computerScore=0
+        document.getElementById("imag").innerHTML="<img src='img/user.png' class='imagm'>";
+        document.getElementById("imgc").innerHTML="<img src='img/computer.png' class='imgc'>";
+
     })
 }
 

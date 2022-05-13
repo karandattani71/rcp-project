@@ -11,7 +11,7 @@ background-color: #d48794;
 
 header {
 background: #38a0c0;
-padding: 10px;      
+padding: 9px;      
 }
 
 header > h1 {
@@ -61,7 +61,7 @@ font-family: arial , sans-serif;
 }
 
 .result {
-    font-size: 40px; 
+    font-size: 30px; 
     color: white;
 }
 
@@ -126,18 +126,18 @@ font-family: arial , sans-serif;
     justify-content: space-between;
     margin-left: 2%;
     margin-right: 2%;
-    margin-top: 2%;
+    /* margin-top: 1%; */
 }
 .human{
     flex-shrink: 1;
     width: 350px;
-    height: 360px;
+    height: 250px;
     margin-left: 30px;
 }
 .computer{
     margin-right: 30px;
     width: 350px;
-    height: 360px;
+    height: 250px;
 }
 .winlose{
     display: flex;
@@ -145,7 +145,7 @@ font-family: arial , sans-serif;
     align-items: center;
 
     width: 350px;
-    height: 360px;
+    height: 250px;
 }
 .imagm{
     display: flex;
@@ -156,9 +156,9 @@ font-family: arial , sans-serif;
     background-color:#0a74949d;
     border: solid;
     margin: auto;
-    width: 290px;
+    width: 240px;
     border-radius: 50px;
-    height: 290px;
+    height: 240px;
 }
 .imgc{
         display: flex;
@@ -170,8 +170,8 @@ font-family: arial , sans-serif;
         margin: auto;
         background-color: #0a74949d;
         border-radius: 50px;
-        width: 290px;
-        height: 290px;
+        width: 240px;
+        height: 240px;
 }
 
 #res{
@@ -242,6 +242,7 @@ font-family: arial , sans-serif;
  .c{
      display: flex;
      justify-content:space-between;
+     margin-top: 25px;
  }
 
  .wlt{
